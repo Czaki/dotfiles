@@ -23,7 +23,8 @@ set clipboard=unnamed,unnamedplus
 set mousemodel=popup                             " right-click pops up context menu
 set ruler 
 set laststatus=2 
-set scrolloff=3 
+set scrolloff=3
+set backspace=indent,eol,start
 "set wildmode=longest,list
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Vundle Options                                 "
