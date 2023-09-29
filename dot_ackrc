@@ -4,7 +4,7 @@
 --ignore-dir=.git
 --ignore-dir=build
 --ignore-dir=dist
---ignore-die=__pycache__
+--ignore-dir=__pycache__
 
 # json performance reports
 --ignore-file=match:/report.*.json$/

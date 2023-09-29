@@ -1,0 +1,178 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             Global Options                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+set history=1000
+set undolevels=1000 
+set hidden
+set showmode
+set showcmd
+set autoindent
+set smartindent
+set number
+set autowrite
+set hlsearch incsearch ignorecase smartcase      " wyszukiwanie
+set showmatch
+set tabstop=2
+set expandtab
+set spelllang=pl                                 " set spell language
+set shiftwidth=4
+set mouse=a
+set wildmenu
+set clipboard=unnamed,unnamedplus 
+set mousemodel=popup                             " right-click pops up context menu
+set ruler 
+set laststatus=2 
+set scrolloff=3 
+"set wildmode=longest,list
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             Vundle Options                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'gerw/vim-latex-suite'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mileszs/ack.vim'
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-abolish'
+Plugin 'tomasr/molokai'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'othree/xml.vim'
+Plugin 'sukima/xmledit'
+Plugin 'dpelle/vim-LanguageTool'
+" Plugin 'vim-scripts/armasm'
+Plugin 'majutsushi/tagbar'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set omnifunc=syntaxcomplete#Complete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Appearance                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+set background=dark
+" Tweaks for Molokai colorscheme (ignored if Molokai isn't used)
+"let g:molokai_original=1
+"let g:rehash256=1
+" Use the first available colorscheme in this list
+" highlight the 80th column
+"
+" In Vim >= 7.3, also highlight columns 120+
+if has('gui_running')
+    for scheme in [ 'molokai', 'solarized', 'desert' ]
+        try
+            execute 'colorscheme '.scheme
+            break
+        catch
+            continue
+        endtry
+    endfor
+
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    "set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+endif
+:hi ColorColumn guibg=#2d2d2d ctermbg=246
+if exists('+colorcolumn')
+" (I picked 120-320 because you have to provide an upper bound and 500 seems
+" to be enough.)
+let &colorcolumn="80,".join(range(120,999),",")
+else
+" fallback for Vim < v7.3
+autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            Filetype Options                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
+"let g:tex_indent_items = 1
+
+let g:TeX_DefaultTargetFormat = 'pdf'
+
+au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+au Filetype cpp setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au Filetype haskell setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+au FileType tex setlocal spell foldcolumn=6
+au FileType plaintex set filetype=tex
+
+augroup filetype
+    au! BufRead,BufNewFile *.ll     set filetype=llvm 
+augroup END
+
+au Filetype llvm setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+augroup filetype
+  au! BufRead,BufNewFile *.asm set filetype=nasm
+augroup END
+au FileType nasm setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+let g:syntastic_python_pylint_args = "--max-line-length=120"
+
+"map <F9> :tabnew ~/Dropbox/LaTeX/różne/praca-domowa.tex <CR>  ggVGygT<Esc>Pgt:q<CR>:47<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Other Options                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F10> <Esc>:Tlist<CR>
+let g:UltiSnipsExpandTrigger="<c-a>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:airline#extensions#tabline#enabled = 1
+let g:ycm_always_populate_location_list = 1
+let delimitMate_expand_cr = 1
+au FileType tex let b:loaded_delimitMate = 1
+if has('gui_running')
+    let g:airline_powerline_fonts = 1
+endif
+let g:clang_format#command = "clang-format-3.6"
+"let g:Tex_PackagesMenu = 0 "Chyba wywala tylko górne menu
+nmap <silent> <c-k> :NERDTreeToggle<CR>
+
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+nmap <silent> <A-Down> gj
+nmap <silent> <A-Up> gk
+nmap <silent> <A-Left> <Left>
+nmap <silent> <A-Right> <Right>
+
+imap <silent> <A-Down> <c-o>gj
+imap <silent> <A-Up> <c-o>gk
+imap <silent> <A-Left> <Left>
+imap <silent> <A-Right> <Right>
+
+nmap <C-i> :YcmCompleter GoToDefinition<CR>
+
+let g:haddock_browser="/usr/bin/firefox"
+let g:syntastic_always_populate_loc_list = 1
+
+""""""""""""""""" Language Tool """""""""""""""""
+
+let g:languagetool_jar='$HOME/LanguageTool-3.9/languagetool-commandline.jar'
+let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,EN_UNPAIRED_BRACKETS'
