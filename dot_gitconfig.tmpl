@@ -1,9 +1,8 @@
 [user]
 	email = bokota+github@gmail.com
 	name = Grzegorz Bokota
-	signingKey = {{ .sign_key }}
-[gpg]
-	format = openpgp
+	signingkey = {{ .sign_key }}
+
 [alias]
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	tree = log --oneline --decorate --all --graph
@@ -12,6 +11,10 @@
 	gpgSign = true
 [tag]
 	forceSignAnnotated = true
+[gpg]
+        format = openpgp
+        program = gpg
+
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
