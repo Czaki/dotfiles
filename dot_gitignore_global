@@ -27,3 +27,4 @@ dist/
 # pyenv selector
 .python-version
 
+.vscode
