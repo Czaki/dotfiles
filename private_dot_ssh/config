@@ -1,0 +1,89 @@
+Host *
+  ServerAliveInterval 60
+
+Host pier23 
+  HostName so.cent.uw.edu.pl
+  User gbokota
+  IdentityFile ~/.ssh/cent 
+
+Host ws-orzel
+  ProxyCommand ssh -W %h:%p  pier23 
+  IdentityFile ~/.ssh/cent
+ 
+Host ws-inka
+  ProxyCommand ssh -W %h:%p  pier23 
+  IdentityFile ~/.ssh/cent
+ 
+Host srv-lupaszka
+  User gbokota
+  ProxyCommand ssh -W %h:%p  pier23 
+  IdentityFile ~/.ssh/cent
+  ForwardAgent yes
+
+Host nucleus
+  User gbokota
+  IdentityFile ~/.ssh/cent 
+  HostName nucleus3d.cent.uw.edu.pl
+  Port 55522
+
+Host github.com
+  IdentityFile ~/.ssh/github 
+
+Host gitlab.com
+  IdentityFile ~/.ssh/gitlab_com
+
+Host gitlab.uw.edu.pl
+  IdentityFile ~/.ssh/gitlab_uw
+
+Host gitlab.mimuw.edu.pl
+  IdentityFile ~/.ssh/mimuw
+  AddressFamily inet
+
+Host bitbucket.org 
+  IdentityFile ~/.ssh/bitbucket 
+
+Host students
+  HostName students.mimuw.edu.pl
+  User gb305058 
+  IdentityFile ~/.ssh/mimuw
+  
+Host duch
+  HostName duch.mimuw.edu.pl
+  User gb305058
+  IdentityFile ~/.ssh/mimuw
+
+Host chuck
+  HostName chuck
+  User gbokota
+  IdentityFile ~/.ssh/mimuw
+  ProxyCommand ssh -W %h:%p duch
+
+Host skg
+  HostName duch.mimuw.edu.pl
+  User skg
+  IdentityFile ~/.ssh/skg
+
+Host entropy
+  HostName entropy.mimuw.edu.pl  
+  User gbokota
+  IdentityFile ~/.ssh/github
+
+Host delocate-host
+    HostName dynevor.fairuse.org
+    User grzegorz
+    IdentityFile ~/.ssh/delocate2 
+    Port 22123
+    ForwardAgent yes
+
+Host delocate
+  HostName lockdowns
+  User grzegorz
+  ProxyCommand ssh -W %h:%p  delocate-host
+  IdentityFile ~/.ssh/delocate2
+
+
+Host mikrus
+    HostName srv19.mikr.us
+    IdentityFile ~/.ssh/mikrus_gbokota
+    Port 10213
+    User gbokota
