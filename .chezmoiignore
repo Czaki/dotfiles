@@ -1,5 +1,2 @@
-.oh-my-zsh/cache/completions
-.oh-my-zsh/cache/grep-alias
+.oh-my-zsh/cache/
 .vim/bundle/Vundle.vim/doc/tags
-.oh-my-zsh/cache/dotenv-allowed.list
-.oh-my-zsh/cache/dotenv-disallowed.list
