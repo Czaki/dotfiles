@@ -1,5 +1,6 @@
 Host *
   ServerAliveInterval 60
+  AddKeysToAgent yes
 
 Host pier23 
   HostName so.cent.uw.edu.pl

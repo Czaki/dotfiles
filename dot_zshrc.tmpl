@@ -42,8 +42,8 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
 {{ if eq .chezmoi.os "linux" }}    ubuntu
-    you-should-use
 {{ end }}
+    you-should-use
     git
     git-extras
     git-flow
@@ -68,8 +68,13 @@ plugins=(
     ssh-agent
     gpg-agent
     keychain
+    brew
 {{ end }}
     ) #django pip
+
+
+zstyle :omz:plugins:ssh-agent lazy yes
+{{ if eq .chezmoi.os "darwin" }}zstyle :omz:plugins:keychain agents gpg,ssh{{ end }}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,7 +102,6 @@ alias students-proxy='ssh -C2qTnN -D8080 students'
 
 zstyle ':mime:.tex:' handler vim %s
 zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' '*?.old' '*?.pro'
-{{ if eq .chezmoi.os "darwin" }}zstyle :omz:plugins:keychain agents gpg,ssh{{ end }}
 
 # added by pipx (https://github.com/cs01/pipx)
 PATH="${HOME}/.local/bin/:${PATH}"
