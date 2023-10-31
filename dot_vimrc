@@ -146,9 +146,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ycm_always_populate_location_list = 1
 let delimitMate_expand_cr = 1
 au FileType tex let b:loaded_delimitMate = 1
-if has('gui_running')
-    let g:airline_powerline_fonts = 1
-endif
+
+let g:airline_powerline_fonts = 1
+
 let g:clang_format#command = "clang-format-3.6"
 "let g:Tex_PackagesMenu = 0 "Chyba wywala tylko górne menu
 nmap <silent> <c-k> :NERDTreeToggle<CR>

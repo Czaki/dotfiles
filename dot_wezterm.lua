@@ -17,8 +17,24 @@ config.color_scheme = 'Django'
 config.font = wezterm.font 'SauceCodePro Nerd Font Mono' 
 config.font_size = 12.5
 
-config.window_background_opacity = 0.4
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
+
+config.keys = {
+  {
+    key = '\\',
+    mods = 'CTRL',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = ']',
+    mods = 'CTRL',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+
+}
+
+
 
 wezterm.on('update-right-status', function(window, pane)
   -- "Wed Mar 3 08:14"
