@@ -13,11 +13,11 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Django'
+config.color_scheme = 'Dracula'
 config.font = wezterm.font 'SauceCodePro Nerd Font Mono' 
 config.font_size = 12.5
 
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 20
 
 config.keys = {
