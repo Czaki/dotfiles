@@ -3,6 +3,7 @@
 --ignore-dir=.mypy_cache
 --ignore-dir=.git
 --ignore-dir=.asv
+--ignore-dir=.idea
 --ignore-dir=build
 --ignore-dir=dist
 --ignore-dir=__pycache__
