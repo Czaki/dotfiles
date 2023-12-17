@@ -1,2 +1,5 @@
 .oh-my-zsh/cache/
 .vim/bundle/Vundle.vim/doc/tags
+{{- if ne .chezmoi.hostname "grzesiek-komputer" }}
+.local/bin/sound.sh
+{{- end }}
