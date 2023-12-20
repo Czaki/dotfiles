@@ -20,7 +20,7 @@ if [[ -n $BLUEZ ]]; then
         pactl set-default-source $BUILDIN_INPUT
     fi
 else
-    if [[ -n $NCX_USB_INPUT ]] && [[ $BUILDIN_INPUT == *$(pactl get-default-source)* ]]; then
+    if [[ -n $NCX_USB_INPUT ]] && [[ $BUILDIN_OUTPUT == *$(pactl get-default-sink)* ]]; then
         pactl set-default-sink $NCX_USB_OUTPUT
         pactl set-default-source $NCX_USB_INPUT
     else
