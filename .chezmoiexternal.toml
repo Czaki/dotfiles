@@ -36,4 +36,11 @@
     refreshPeriod = "168h"
     exclude = ["*/versions/*"]
 
+[".pyenv/plugins/pyenv-virtualenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv-virtualenv/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 {{ end }}
