@@ -1,7 +1,8 @@
 #!/bin/bash
 
 {{ if eq .chezmoi.os "linux" -}}
-sudo apt install fzf
+echo "Install fzf"
+sudo apt install fzf zsh python3-argcomplete pipx
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install fzf
 {{ end -}}

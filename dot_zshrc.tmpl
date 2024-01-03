@@ -41,8 +41,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-{{ if eq .chezmoi.os "linux" }}    ubuntu
-{{ end }}
+{{ if eq .chezmoi.os "linux" }}    ubuntu{{ end }}
     you-should-use
     git
     git-extras
@@ -69,7 +68,7 @@ plugins=(
     gpg-agent
     keychain
     brew
-{{ end }}
+{{ end -}}
     ) #django pip
 
 
@@ -116,6 +115,6 @@ eval "$(pyenv virtualenv-init -)"
 export JUPYTER_DATA_DIR=$HOME/jupyter
 export JUPYTER_RUNTIME_DIR=$HOME/jupyter
 
-eval "$(atuin init zsh --disable-up-arrow)"
+{{ if .use_atuin }}eval "$(atuin init zsh --disable-up-arrow)"{{ end }}
 eval "$(chezmoi completion zsh)"
 eval "$(register-python-argcomplete pipx)"

@@ -27,3 +27,4 @@
     type = "file"
     url = "http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl"
  
+{{ if eq .chezmoi.os "linux" }}{{ end }}
