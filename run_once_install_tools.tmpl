@@ -2,7 +2,21 @@
 
 {{ if eq .chezmoi.os "linux" -}}
 echo "Install fzf"
-sudo apt install fzf zsh python3-argcomplete pipx
+sudo apt install fzf zsh pipx
+pipx install argcomplete
+
+FILE=$HOME/.zprofile
+LINE=PYENV_ROOT
+
+if [ ! -f "$FILE" ] || ! grep -q "$LINE" "$FILE"; then
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> $FILE
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> $FILE
+echo 'eval "$(pyenv init --path)"' >> $FILE
+
+fi
+
+
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install fzf
 {{ end -}}
