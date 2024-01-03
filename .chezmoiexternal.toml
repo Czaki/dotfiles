@@ -27,4 +27,13 @@
     type = "file"
     url = "http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl"
  
-{{ if eq .chezmoi.os "linux" }}{{ end }}
+{{ if eq .chezmoi.os "linux" }}
+[".pyenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    exclude = ["*/versions/*"]
+
+{{ end }}
