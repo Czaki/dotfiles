@@ -1,6 +1,9 @@
 # pycharm stuff
 .idea
 
+#vscode stuff
+.vscode
+
 # my temporary files
 *.tmp
 
