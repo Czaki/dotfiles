@@ -34,7 +34,7 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-    exclude = ["*/versions/*"]
+    exclude = ["*/versions/*", "*/cache/*"]
 
 [".pyenv/plugins/pyenv-virtualenv"]
     type = "archive"
