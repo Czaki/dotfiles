@@ -1,6 +1,7 @@
 # macos 
 .DS_Store
 
+.gdb_history
 # pycharm stuff
 .idea
 
