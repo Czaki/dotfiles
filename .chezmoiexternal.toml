@@ -29,18 +29,15 @@
  
 {{ if eq .chezmoi.os "linux" }}
 [".pyenv"]
-    type = "archive"
-    url = "https://github.com/pyenv/pyenv/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
+	type = "git-repo"
+    url = "https://github.com/pyenv/pyenv.git"
+	sparseCheckout = ["*", "!shims", "!versions", "!cache"]
     refreshPeriod = "168h"
-    exclude = ["*/versions/*", "*/cache/*"]
+    
 
 [".pyenv/plugins/pyenv-virtualenv"]
-    type = "archive"
-    url = "https://github.com/pyenv/pyenv-virtualenv/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/pyenv/pyenv-virtualenv.git"
     refreshPeriod = "168h"
 
 {{ end }}

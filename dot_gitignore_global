@@ -1,3 +1,6 @@
+# directory for temporary files to reproduce bug
+bug_reproduce 
+
 # macos 
 .DS_Store
 
