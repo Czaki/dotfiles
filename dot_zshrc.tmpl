@@ -120,3 +120,6 @@ export JUPYTER_RUNTIME_DIR=$HOME/jupyter
 {{ if .use_atuin }}eval "$(atuin init zsh --disable-up-arrow)"{{ end }}
 eval "$(chezmoi completion zsh)"
 eval "$(register-python-argcomplete pipx)"
+
+PATH="${HOME}/.pixi/bin:${PATH}"
+export PATH
