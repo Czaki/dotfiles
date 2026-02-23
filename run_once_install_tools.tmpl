@@ -6,7 +6,7 @@ sudo apt install fzf zsh pipx zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3
 pipx install argcomplete
 
 FILE=$HOME/.zprofile
-FILE2=#HOME/.profile
+FILE2=$HOME/.profile
 LINE=PYENV_ROOT
 
 if [ ! -f "$FILE" ] || ! grep -q "$LINE" "$FILE"; then
