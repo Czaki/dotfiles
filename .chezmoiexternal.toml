@@ -23,9 +23,6 @@
     stripComponents = 1
     refreshPeriod = "168h"
     exact = true
-[".vim/spell/pl.utf-8.spl"]
-    type = "file"
-    url = "http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl"
  
 {{ if eq .chezmoi.os "linux" }}
 [".pyenv"]
