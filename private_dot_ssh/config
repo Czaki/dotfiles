@@ -2,25 +2,6 @@ Host *
   ServerAliveInterval 60
   AddKeysToAgent yes
 
-Host pier23 
-  HostName so.cent.uw.edu.pl
-  User gbokota
-  IdentityFile ~/.ssh/cent 
-
-Host ws-orzel
-  ProxyCommand ssh -W %h:%p  pier23 
-  IdentityFile ~/.ssh/cent
- 
-Host ws-inka
-  ProxyCommand ssh -W %h:%p  pier23 
-  IdentityFile ~/.ssh/cent
- 
-Host srv-lupaszka
-  User gbokota
-  ProxyCommand ssh -W %h:%p  pier23 
-  IdentityFile ~/.ssh/cent
-  ForwardAgent yes
-
 Host nucleus
   User gbokota
   IdentityFile ~/.ssh/cent 
