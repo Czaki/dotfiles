@@ -2,8 +2,10 @@
 
 {{ if eq .chezmoi.os "linux" -}}
 echo "Install fzf"
-sudo apt install fzf zsh pipx zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev libreadline-dev libncurses-dev
-sudo snap install diff-so-fancy
+sudo apt install -y fzf ripgrep fd-find zsh pipx \
+     zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev libreadline-dev libncurses-dev tk-dev
+
+sudo snap install diff-so-fancy  # for nicer diff in git 
 pipx install argcomplete
 
 FILE=$HOME/.zprofile
